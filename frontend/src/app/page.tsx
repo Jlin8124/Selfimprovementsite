@@ -18,6 +18,11 @@ const features = [
     desc: "Generate a PDF portfolio of your verified builds.",
     href: "/portfolio",
   },
+  {
+    title: "About me",
+    desc: "Learn more about who I am and what I'm passionate about",
+    href: "/about",
+  }
 ];
 
 export default function Home() {
