@@ -7,6 +7,10 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
     {title: "Home", href: "/"},
+    {title: "Projects", href: "/"},
+    {title: "Work Experience", href: "/"},
+    {title: "Blog", href: "/blog"},
+    {title: "About me", href: "/about"},
 ]
     export default function Navbar() {
         return (

@@ -4,8 +4,6 @@ export default function about() {
     return (
       <>
       <div className= "bg-sky-50">
-         <h1 className = "font-bold"> About me </h1>
-         <h1 className = "font-bold"> History </h1>
       </div>
       <div className = "block">
         <p className = ""> Hello</p>
@@ -16,7 +14,7 @@ export default function about() {
           width={200} // 300px
           height ={100}
           
-          className="rounded-lg object-cover"
+          className="rounded-lg object-cover rotate-x-15 -rotate-y-30"
           />
 
 
