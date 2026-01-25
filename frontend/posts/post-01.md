@@ -7,7 +7,11 @@ slug: post-01
 
 Hey guys how's it going! 
 
+
+
 Jason Lin here with my first blog post using TypeScript, React, and Next.js. I'm excited to share my journey as a self-taught developer learning to break into the tech industry.
+
+<img src="/img/jlinphoto.png" alt="Jason Lin" width="200" />
 
 ## Why I Started This Blog
 

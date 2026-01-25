@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { posts } from '#site/content'
 import { compareDesc, format, parseISO } from 'date-fns';
 
+
 export default function blog() {
     const sortedPosts = posts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
     return (
@@ -35,6 +36,8 @@ export default function blog() {
                     Read Post
                     </Link>
                 
+
+
                 </article>
                
             ))}

@@ -3,11 +3,24 @@ import { posts } from '#site/content'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { readFile } from 'fs/promises'
 import { join } from 'path'
+import { marked } from 'marked'
 
 export const dynamicParams = true
 
 export const generateStaticParams = async () => {
-    return posts.map((post) => ({
+    
+    debugger;
+        // Identifying bad data 
+    const invalidPosts = posts.filter(p => !p.slug);
+    if (invalidPosts.length > 0) {
+        console.warn(`[WARN] Skipping ${invalidPosts.length} due to missing slugs`);
+    }
+
+    return posts
+        //1. THE GUARD: Remove any post that lacks a slug
+        .filter((post) => post.slug)
+        // 2. The TRANSFORM: Now we know 'post.slug' is guaranteed to exist
+        .map((post) => ({
         slug: post.slug,
     }))
 }
@@ -33,7 +46,7 @@ export default async function PostPage({
         // Extract content after frontmatter (after second ---)
         const parts = fileContent.split('---')
         if (parts.length >= 3) {
-            bodyContent = parts[2].trim()
+            bodyContent = await marked(parts[2].trim())
         }
     } catch (error) {
         console.error('Error reading post file:', error)
@@ -48,9 +61,10 @@ export default async function PostPage({
                 <h1 className="text-4xl font-bold">{post.title}</h1>
             </div>
             <div className="prose prose-invert max-w-none">
-                <div className="text-gray-200 leading-relaxed whitespace-pre-wrap">
-                    {bodyContent}
-                </div>
+                <div 
+                    dangerouslySetInnerHTML={{ __html: bodyContent }}
+                    className="text-black leading-relaxed"
+                />
             </div>
         </article>
     )

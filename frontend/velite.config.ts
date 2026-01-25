@@ -9,6 +9,9 @@ const posts = defineCollection({
     excerpt: s.string(),
     slug: s.string().optional(),
     content: s.string().optional(),
+    tags: s.array(s.string()).optional(),
+    readTime: s.number().optional(),
+    author: s.string().optional(),
   }),
 })
 
