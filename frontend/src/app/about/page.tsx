@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import ContactForm from "@/components/contactform";
 
 export default function about() {
     return (
       <>
       <div className= "bg-sky-50">
       </div>
-      <div className = "block">
+      <div className = "flex justify-center gap-6 items-center">
         <p className = ""> Hello</p>
         
         <Image 
@@ -14,12 +15,13 @@ export default function about() {
           width={200} // 300px
           height ={100}
           
-          className="rounded-lg object-cover rotate-x-15 -rotate-y-30"
+          
+          className="rounded-lg object-cover rotate-x-15 -rotate-y-30 animate-spin"
           />
+        </div>
+        <div>
+        <ContactForm/>
 
-
-        
-      
       </div>
     </>
     );
